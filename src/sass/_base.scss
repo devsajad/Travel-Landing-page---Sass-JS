@@ -1,0 +1,137 @@
+// Color variables
+$color-main: #df6951;
+
+$color-grey: #5e6282;
+$color-grey-shade--1: #181e4b;
+$color-grey-shade--2: #080809;
+$color-greys-shade--3: #212832;
+$color-grey-tint--1: #f7f7f7;
+
+$color-accent--yellow: #f1a501;
+$color-accent--purple: #8a79df;
+$color-accent--purple-tint: #dfd7f9;
+
+@mixin transition-normal {
+  transition: all 0.3s;
+}
+
+@mixin section-header {
+  text-align: center;
+  span {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 5rem;
+    margin-bottom: 6.5rem;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin section-hr-pad {
+  padding: 0 2rem;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", serif;
+  color: $color-grey;
+  background-color: #fff;
+  position: relative;
+  line-height: 1;
+
+  &::before {
+    content: "";
+    display: inline-block;
+
+    position: absolute;
+    width: 478.94px;
+    height: 496.86px;
+
+    left: -25%;
+    top: -24%;
+
+    background: #d5aee4;
+    opacity: 0.3;
+    filter: blur(75px);
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+
+    position: absolute;
+    width: 478.94px;
+    height: 496.86px;
+    right: -30%;
+    bottom: -50%;
+
+    /* d2 */
+    background: #d5aee4;
+    opacity: 0.8;
+    filter: blur(75px);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+}
+
+.container {
+  max-width: 120rem;
+  margin: auto;
+}
+
+section,
+header.main {
+  margin-bottom: 19.2rem;
+}
+
+.subtitle {
+  display: block;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-align: center;
+  color: $color-grey;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+  font-family: "Volkhov", sans-serif;
+  color: $color-grey-shade--1;
+}
+
+h2 {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+input {
+  outline: none;
+  border: none;
+}

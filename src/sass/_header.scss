@@ -1,0 +1,115 @@
+header {
+  //   background-image: url("../../assets/Decore.png");
+  //   background-repeat: no-repeat;
+  //   background-position: 120% -120px;
+}
+
+.nav {
+  color: $color-greys-shade--3;
+  padding: 2.5rem 1.8rem;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo-container {
+    .nav__logo {
+      width: 11.5rem;
+    }
+  }
+
+  &__menu {
+    align-items: center;
+    display: flex;
+    gap: 4rem;
+
+    &-item {
+      &--language {
+        @include flex-center;
+        gap: 0.65rem;
+
+        .nav__menu-arrow-icon {
+          width: 1rem;
+          height: auto;
+        }
+      }
+
+      &--signup {
+        padding: 1rem 2rem;
+        border: 1px solid $color-greys-shade--3;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.hero {
+  @include section-hr-pad;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+
+  &__text-container {
+    & .hero__subtitle {
+      font-weight: 700;
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: $color-main;
+      display: inline-block;
+      margin-bottom: 1.8rem;
+    }
+
+    & .hero__title {
+      font-family: "Volkhov", sans-serif;
+      font-size: 8.4rem;
+      color: $color-grey-shade--1;
+      line-height: 8.9rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.8rem;
+    }
+
+    & .hero__description {
+      font-weight: 500;
+      line-height: 3rem;
+      margin-bottom: 1.8rem;
+      color: $color-grey;
+    }
+
+    & .hero__actions {
+      display: flex;
+      align-items: center;
+      gap: 4.4rem;
+
+      .hero__action-button {
+        background: #f1a501;
+        box-shadow: 0px 20px 35px rgba(241, 165, 1, 0.15);
+        border-radius: 10px;
+        padding: 1.9rem 2.6rem;
+        font-weight: 500;
+        font-size: 1.8rem;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      .hero__play-demo {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        img {
+          border-radius: 50%;
+          stroke: #fff;
+          padding: 2rem;
+          background: #df6951;
+          box-shadow: 0px 15px 30px rgba(223, 105, 81, 0.3);
+        }
+      }
+    }
+  }
+
+  &__image {
+    img {
+      max-width: 100%;
+    }
+  }
+}
