@@ -1,5 +1,21 @@
 .footer {
-  margin-bottom: 9.6rem;
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    display: inline-block;
+
+    position: absolute;
+    width: 478.94px;
+    min-height: 496.86px;
+    right: -30%;
+    bottom: -100%;
+
+    /* d2 */
+    background: #d5aee4;
+    opacity: 0.8;
+    filter: blur(75px);
+  }
   &__container {
     padding: 0 5rem;
     display: grid;
@@ -45,6 +61,6 @@
   }
   &__copyright {
     text-align: center;
-    margin-top: 8.5rem;
+    margin: 8.5rem 0 8.5rem 0;
   }
 }

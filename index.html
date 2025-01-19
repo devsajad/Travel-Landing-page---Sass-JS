@@ -50,7 +50,8 @@
               >Best Destinations around the world</span
             >
             <h1 class="hero__title">
-              Travel, enjoy and live a new and full life
+              Travel, <span class="hero__title--underline">enjoy</span> and live
+              a new and full life
             </h1>
             <p class="hero__description">
               Built Wicket longer admire do barton vanity itself do in it.
@@ -75,7 +76,7 @@
     </header>
 
     <main>
-      <section class="features">
+      <section class="features section-hidden">
         <div class="container">
           <header class="features__header">
             <span class="features__category subtitle">CATEGORY</span>
@@ -130,7 +131,12 @@
             <div class="selling__destination">
               <figure>
                 <div class="selling__image">
-                  <img src="assets/destination/italy.png" alt="Rome, Italy" />
+                  <img
+                    data-name="italy"
+                    src="assets/destination/lowQuality/Slice 1-italy-lq.png"
+                    alt="Rome, Italy"
+                    class="lazy-loading"
+                  />
                 </div>
                 <figcaption>
                   <div class="selling__info">
@@ -159,7 +165,12 @@
             <div class="selling__destination">
               <figure>
                 <div class="selling__image">
-                  <img src="assets/destination/london.png" alt="London, UK" />
+                  <img
+                    data-name="london"
+                    src="assets/destination/lowQuality/Slice 2london-lq.png"
+                    alt="London, UK"
+                    class="lazy-loading"
+                  />
                 </div>
                 <figcaption>
                   <div class="selling__info">
@@ -188,7 +199,12 @@
             <div class="selling__destination">
               <figure>
                 <div class="selling__image">
-                  <img src="assets/destination/europe.png" alt="Rome, Italy" />
+                  <img
+                    data-name="europe"
+                    src="assets/destination/lowQuality/Slice 1-europe-lq.png"
+                    alt="Europe picture"
+                    class="lazy-loading"
+                  />
                 </div>
                 <figcaption>
                   <div class="selling__info">
@@ -228,7 +244,7 @@
 
             <!-- Step Cards -->
             <div class="steps__cards">
-              <div class="steps__card">
+              <div class="steps__card section-hidden">
                 <svg
                   width="47"
                   height="48"
@@ -252,7 +268,7 @@
                 </div>
               </div>
 
-              <div class="steps__card">
+              <div class="steps__card section-hidden">
                 <svg
                   width="47"
                   height="48"
@@ -308,7 +324,7 @@
                 </div>
               </div>
 
-              <div class="steps__card">
+              <div class="steps__card section-hidden">
                 <svg
                   width="47"
                   height="48"
@@ -357,9 +373,10 @@
           <div class="steps__images">
             <div class="steps__image">
               <img
-                src="./assets/steps/greec.jpg"
+                data-name="greec"
+                src="./assets/steps/greec-lq.png"
                 alt="Trip To Greece"
-                class="steps__image--img"
+                class="steps__image--img lazy-loading"
               />
               <p class="steps__image--title">Trip To Greece</p>
 
@@ -533,7 +550,7 @@
                 <p class="steps__floating-card--status">Ongoing</p>
                 <p class="steps__floating-card--title">Trip to Rome</p>
                 <p class="steps__floating-card--progress">
-                  <span class="steps__floating-card--percentage">40%</span>
+                  <span class="steps__floating-card--percentage">0%</span>
                   completed
                 </p>
 
@@ -556,40 +573,19 @@
             <span class="subtitle">Testimonials</span>
             <h2 class="testimonial__title">What people say about Us.</h2>
             <div class="testimonial__header--dots">
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="6" cy="6" r="6" fill="#E5E5E5" />
-              </svg>
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="6" cy="6" r="6" fill="#E5E5E5" />
-              </svg>
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="6" cy="6" r="6" fill="#E5E5E5" />
-              </svg>
+              <!-- <button
+                class="dots__dot dots__dot--active"
+                data-slide="0"
+              ></button>
+              <button class="dots__dot" data-slide="0"></button>
+              <button class="dots__dot" data-slide="0"></button> -->
             </div>
           </div>
 
           <div class="testimonial__slider">
             <div class="testimonial__slider--slide active">
               <img
-                src="./assets/Imageprofile.png"
+                src="./assets/avatars/user-0.png"
                 alt="profile image"
                 class="testimonial__slider--img"
               />
@@ -606,7 +602,25 @@
 
             <div class="testimonial__slider--slide next">
               <img
-                src="./assets/Imageprofile.png"
+                src="./assets/avatars/user-1.jpg"
+                alt="profile image"
+                class="testimonial__slider--img"
+              />
+              <div class="testimonial__slider--content">
+                <p class="testimonial__comment">
+                  “On the Windows talking painted pasture yet its express
+                  parties use. Sure last upon he same as knew next. Of believed
+                  or diverted no.”
+                </p>
+                <p class="testimonial__name">Chris Thomas</p>
+                <p class="testimonial__location">CEO of Red Button</p>
+              </div>
+              <div class="testimonial__arrows"></div>
+            </div>
+
+            <div class="testimonial__slider--slide">
+              <img
+                src="./assets/avatars/user-2.jpg"
                 alt="profile image"
                 class="testimonial__slider--img"
               />
@@ -625,6 +639,7 @@
 
           <div class="testimonial__arrows">
             <svg
+              class="arrow-top"
               width="16"
               height="10"
               viewBox="0 0 16 10"
@@ -633,31 +648,26 @@
             >
               <path
                 d="M1 8.5L8 1.5L15 8.5"
-                stroke="#BCB7C2"
                 stroke-width="2"
                 stroke-linecap="round"
               />
             </svg>
 
             <svg
+              class="arrow-down"
               width="16"
               height="10"
               viewBox="0 0 16 10"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M1 1L8 8L15 1"
-                stroke="#3E2E4D"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
+              <path d="M1 1L8 8L15 1" stroke-width="2" stroke-linecap="round" />
             </svg>
           </div>
         </div>
       </section>
 
-      <section class="featured-logos">
+      <section class="featured-logos section-hidden">
         <div class="container featured-logos__container">
           <div class="featured-logos--logo">
             <img

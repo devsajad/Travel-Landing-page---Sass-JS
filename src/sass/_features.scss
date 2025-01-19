@@ -1,6 +1,11 @@
 .features {
-  text-align: center;
-
+  .container {
+    text-align: center;
+    background-image: url("../../assets/backgrounds/feature-back.png");
+    background-repeat: no-repeat;
+    background-position: 95% 0;
+    background-size: 11rem;
+  }
   &__header {
     @include section-header;
   }
@@ -14,10 +19,11 @@
 
     /* Rectangle 6 */
     &--item {
-      overflow: hidden;
       padding: 3rem;
       max-width: 26.7rem;
-      height: 31.4rem;
+      min-height: 31.4rem;
+      background-color: #fff;
+      border-radius: 36px;
 
       img {
         display: inline-block;
@@ -31,13 +37,24 @@
         line-height: 2.6rem;
       }
       &:hover {
-        box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.02),
-          0px 64.8148px 46.8519px rgba(0, 0, 0, 0.0151852),
-          0px 38.5185px 25.4815px rgba(0, 0, 0, 0.0121481),
-          0px 20px 13px rgba(0, 0, 0, 0.01),
-          0px 8.14815px 6.51852px rgba(0, 0, 0, 0.00785185),
-          0px 1.85185px 3.14815px rgba(0, 0, 0, 0.00481481);
-        border-radius: 36px;
+        @include box-shadow;
+      }
+      &:nth-child(2) {
+        position: relative;
+        &::after {
+          z-index: -1;
+          top: 80%;
+          left: -15%;
+
+          content: "";
+          display: block;
+          background-color: #df6951;
+          width: 10rem;
+          height: 10rem;
+
+          position: absolute;
+          border-radius: 30px 0px 10px;
+        }
       }
     }
   }

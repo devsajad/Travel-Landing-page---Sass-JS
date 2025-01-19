@@ -1,5 +1,40 @@
 .cta {
+  position: relative;
   &__container {
+    overflow: hidden;
+    &::after {
+      animation: reverse-rotate 20s linear infinite;
+      transform: rotate(-100deg);
+      z-index: -1;
+      content: "";
+      display: block;
+      width: 28.4rem;
+      height: 29rem;
+      background-image: url("../../assets/backgrounds/cta-circle.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      color: #fff;
+      opacity: 0.07;
+      top: -15%;
+      right: -5%;
+    }
+    &::before {
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+      content: "";
+      display: block;
+      width: 39.7rem;
+      height: 38.9rem;
+      background-image: url("../../assets/backgrounds/cta-circle.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      color: #fff;
+      opacity: 0.07;
+      bottom: -30%;
+      left: 2%;
+    }
     background: rgba(223, 215, 249, 0.2);
     border-radius: 13rem 2rem 2rem 2rem;
     text-align: center;
@@ -7,10 +42,11 @@
     position: relative;
 
     img {
+      display: none;
       position: absolute;
       top: 0;
       right: 0;
-      transform: translate(30%, -30%);
+      transform: translate(30%, 0%);
     }
   }
 
@@ -32,7 +68,7 @@
     &--input-container {
       border-radius: 1rem;
       max-width: 42rem;
-      height: 6.8rem;
+      min-height: 6.8rem;
       background-color: #fff;
 
       display: flex;
@@ -57,7 +93,7 @@
       background: linear-gradient(180deg, #ff946d 0%, #ff7d68 100%);
       border-radius: 1rem;
       width: 18rem;
-      height: 6.8rem;
+      min-height: 6.8rem;
       display: inline-block;
 
       color: #fff;
