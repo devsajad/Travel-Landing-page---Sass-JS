@@ -87,23 +87,27 @@ progressObserver.observe(stepImages);
 
 // ------------------------------------------
 // Lazy Load Images
-const revealImage = (entries, observer) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
+// const revealImage = (entries, observer) => {
+//   entries.forEach((entry) => {
+//     if (!entry.isIntersecting) return;
 
-    const target = entry.target;
-    // target.src = imagesMap[target.dataset.name];
+//     const target = entry.target;
+//     target.src = imagesMap[target.dataset.name];
 
-    // target.addEventListener("load", () =>
-    target.classList.remove("lazy-loading");
-    // );
-    observer.unobserve(target);
-  });
-};
+//     target.addEventListener("load", () => {
+//       target.classList.remove("lazy-loading");
+//     });
+
+//     // Unobserve the image after loading it
+//     observer.unobserve(target);
+//   });
+// };
 
 const imageObserver = new IntersectionObserver(revealImage, {
-  rootMargin: "-300px",
+  rootMargin: "200px", // Start loading earlier to improve performance
+  threshold: 0.1, // Trigger loading earlier
 });
+
 lazyImages.forEach((image) => imageObserver.observe(image));
 
 // ------------------------------------------
