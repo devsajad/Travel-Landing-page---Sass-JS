@@ -6,15 +6,15 @@
     display: inline-block;
 
     position: absolute;
-    width: 478.94px;
-    min-height: 496.86px;
+    width: 47.894rem;
+    min-height: 49.686rem;
     right: -30%;
     bottom: -100%;
 
     /* d2 */
     background: #d5aee4;
     opacity: 0.8;
-    filter: blur(75px);
+    filter: blur(7.5rem);
   }
   &__container {
     padding: 0 5rem;
@@ -30,7 +30,7 @@
     }
     .footer__description {
       font-weight: 500;
-      font-size: 13px;
+      font-size: 1.3rem;
       line-height: 124.5%;
     }
   }

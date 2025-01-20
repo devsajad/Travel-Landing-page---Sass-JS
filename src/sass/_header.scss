@@ -11,15 +11,15 @@ header.main {
     display: inline-block;
 
     position: absolute;
-    width: 478.94px;
-    min-height: 496.86px;
+    width: 47.894rem;
+    min-height: 49.686rem;
 
     left: -25%;
     top: -24%;
 
     background: #d5aee4;
     opacity: 0.3;
-    filter: blur(75px);
+    filter: blur(7.5rem);
   }
 }
 
@@ -53,18 +53,18 @@ header.main {
 
       &--signup {
         padding: 1rem 2rem;
-        border: 1px solid $color-greys-shade--3;
-        border-radius: 5px;
+        border: 0.1rem solid $color-greys-shade--3;
+        border-radius: 0.5rem;
       }
     }
   }
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  align-items: center;
+  @include grid-two-col {
+    justify-items: center;
+    align-items: center;
+  }
 
   &__text-container {
     & .hero__subtitle {
@@ -72,7 +72,7 @@ header.main {
       font-size: 2rem;
       text-transform: uppercase;
       color: $color-main;
-      display: inline-block;
+      display: block;
       margin-bottom: 1.8rem;
     }
 
@@ -80,6 +80,7 @@ header.main {
       &--underline {
         position: relative;
         display: inline-block;
+        z-index: 1;
         &::after {
           z-index: -1;
           content: "";
@@ -88,6 +89,7 @@ header.main {
           height: 1.2rem;
           position: absolute;
           background-image: url("../../assets/backgrounds/header-title.png");
+          background-repeat: no-repeat;
         }
         &.active {
           &::after {
@@ -118,8 +120,8 @@ header.main {
 
       .hero__action-button {
         background: #f1a501;
-        box-shadow: 0px 20px 35px rgba(241, 165, 1, 0.15);
-        border-radius: 10px;
+        box-shadow: 0 2rem 3.5rem rgba(241, 165, 1, 0.15);
+        border-radius: 1rem;
         padding: 1.9rem 2.6rem;
         font-weight: 500;
         font-size: 1.8rem;
@@ -137,7 +139,7 @@ header.main {
           stroke: #fff;
           padding: 2rem;
           background: #df6951;
-          box-shadow: 0px 15px 30px rgba(223, 105, 81, 0.3);
+          box-shadow: 0 1.5rem 3rem rgba(223, 105, 81, 0.3);
         }
       }
     }

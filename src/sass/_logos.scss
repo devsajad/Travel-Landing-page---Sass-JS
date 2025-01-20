@@ -1,4 +1,14 @@
 .featured-logos__container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  .featured-logos--logo {
+    display: flex;
+    align-items: center;
+    img {
+      filter: brightness(0);
+      opacity: 50%;
+    }
+  }
 }

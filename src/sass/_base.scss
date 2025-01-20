@@ -12,6 +12,21 @@ $color-accent--purple: #8a79df;
 $color-accent--purple-tint: #dfd7f9;
 
 @mixin box-shadow {
+  box-shadow: 0rem 10rem 8rem rgba(0, 0, 0, 0.02),
+    0rem 6.48148rem 4.68519rem rgba(0, 0, 0, 0.0151852),
+    0rem 3.85185rem 2.54815rem rgba(0, 0, 0, 0.0121481),
+    0rem 2rem 1.3rem rgba(0, 0, 0, 0.01),
+    0rem 0.814815rem 0.651852rem rgba(0, 0, 0, 0.00785185),
+    0rem 0.185185rem 0.314815rem rgba(0, 0, 0, 0.00481481);
+}
+
+@mixin drop-shadow {
+  filter: drop-shadow(0rem 10rem 8rem rgba(0, 0, 0, 0.02))
+    drop-shadow(0rem 6.48148rem 4.68519rem rgba(0, 0, 0, 0.0151852))
+    drop-shadow(0rem 3.85185rem 2.54815rem rgba(0, 0, 0, 0.0121481))
+    drop-shadow(0rem 2rem 1.3rem rgba(0, 0, 0, 0.01))
+    drop-shadow(0rem 0.814815rem 0.651852rem rgba(0, 0, 0, 0.00785185))
+    drop-shadow(0rem 0.185185rem 0.314815rem rgba(0, 0, 0, 0.00481481));
 }
 
 @mixin section-header {
@@ -73,7 +88,7 @@ body {
 section,
 header.main {
   margin-bottom: 19.2rem;
-  padding: 0 2rem;
+  padding: 0 2.5rem;
 }
 
 .subtitle {
@@ -114,7 +129,7 @@ a {
 }
 
 .lazy-loading {
-  filter: blur(10px);
+  filter: blur(1rem);
 }
 
 @keyframes rotate {
@@ -135,9 +150,60 @@ a {
 }
 
 // media Queries
-// 1200px
-@mixin br-el {
+// 1200 PX
+@mixin br-xl {
   @media screen and (max-width: 75em) {
     @content;
   }
+}
+
+// 1094 PX
+@mixin br-l {
+  @media screen and (max-width: 68.37em) {
+    @content;
+  }
+}
+// 957 PX
+@mixin br-m {
+  @media screen and (max-width: 59.81em) {
+    @content;
+  }
+}
+
+// 700 PX
+@mixin br-s {
+  @media screen and (max-width: 43.75em) {
+    @content;
+  }
+}
+
+// Grids
+@mixin grid-two-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  @include br-m {
+    grid-template-columns: 1fr;
+  }
+  @content;
+}
+
+@mixin grid-three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @include br-m {
+    grid-template-columns: 1fr;
+  }
+  @content;
+}
+
+@mixin grid-four-col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  @include br-m {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include br-s {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @content;
 }

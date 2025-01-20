@@ -11,7 +11,7 @@ const imagesMap = {
 };
 
 const progressBar = document.querySelector(".steps__floating-card--line");
-const stepImages = document.querySelector(".steps__images");
+const stepImages = document.querySelector(".steps__floating-card");
 const heroTitleUnderline = document.querySelector(".hero__title--underline");
 const hiddenSections = document.querySelectorAll(".section-hidden");
 const lazyImages = document.querySelectorAll(".lazy-loading");
