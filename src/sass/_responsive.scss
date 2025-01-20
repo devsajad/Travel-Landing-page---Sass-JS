@@ -1,7 +1,3 @@
-html {
-  font-size: 57.5%;
-}
-
 @include br-xl {
   html {
     font-size: 57.5%;
@@ -172,8 +168,7 @@ html {
     line-height: 2.2;
   }
 }
-
-@include br-m {
+@include br-s {
   // Testimonial
   .featured-logos__container {
     &--logo {
@@ -181,7 +176,6 @@ html {
     }
   }
   .testimonial__container {
-    justify-items: start;
     gap: 16rem;
   }
   .testimonial__arrows {
@@ -223,6 +217,9 @@ html {
     grid-column: 1/-1;
     justify-self: center;
   }
+  .footer__brand .footer__logo {
+    font-size: 3.2rem;
+  }
   // Header
   .hero__text-container .hero__title {
     font-size: 3.8rem;
@@ -245,6 +242,7 @@ html {
   .hero__text-container .hero__actions {
     justify-content: center;
     margin-bottom: 3.2rem;
+    gap: 2.4rem;
   }
   .hero__image img {
     max-width: 85%;
@@ -263,25 +261,21 @@ html {
   .hero__text-container {
     width: 100%;
   }
-  //
+
   .hero__text-container .hero__actions .hero__action-button {
     padding: 1.4rem 2.1rem;
     font-size: 1.6rem;
   }
-  .hero__text-container .hero__actions {
-    gap: 2.4rem;
-  }
   .hero__text-container .hero__actions .hero__play-demo img {
     padding: 1.5rem;
   }
-  // Feautures
+  // Features
   .features__list--item h3 {
     font-size: 1.8rem;
   }
   .features__list--item p {
     font-size: 1.6rem;
   }
-
   // Selling
   .steps {
     margin-bottom: 26rem;
@@ -297,24 +291,176 @@ html {
   .selling__destinations {
     gap: 3.2rem;
   }
-
   .selling .container {
     background-position: 69% 92%;
   }
-
-  // Steps
-  .steps__container {
-    justify-items: start;
-    .steps__images {
-      justify-self: start;
-    }
-  }
-
-  // LOGO
+  // Logo
   .featured-logos--logo:last-child {
     display: none;
   }
+  // CTA
+  .cta__container {
+    padding: 4rem 1rem;
+    border-radius: 7rem 1rem 1rem;
+  }
+  .cta__form--title {
+    margin-bottom: 3rem;
+    font-size: 1.3rem;
+    line-height: 2;
+  }
+  .cta__form--container {
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    input {
+      font-size: 1.5rem;
+      &::placeholder {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .cta__form--input-container {
+    padding: 1.2rem;
+    min-height: 5.6rem;
+    width: 25rem;
+  }
+  .cta__form button {
+    width: 8rem;
+    min-height: 5.6rem;
+    font-size: 1.5rem;
+  }
+}
+@include br-s {
+  // Testimonial
+  .featured-logos__container {
+    &--logo {
+      width: 5rem;
+    }
+  }
+  .testimonial__container {
+    gap: 16rem;
+  }
+  .testimonial__arrows {
+    display: none;
+  }
+  .testimonial__header h2 {
+    margin-bottom: 2.4rem;
+  }
+  .testimonial__header--dots {
+    justify-content: start;
+  }
+  .testimonial {
+    margin-bottom: 35rem;
+  }
+  .testimonial__slider {
+    justify-self: center;
+    width: 290px;
+    margin-left: 20%;
+  }
+  .testimonial__slider--slide {
+    padding: 2rem;
+  }
+  .testimonial__slider--content .testimonial__comment {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+  }
+  .testimonial__location,
+  .testimonial__name {
+    font-size: 1.2rem !important;
+  }
+  .logo-img {
+    height: 20px;
+  }
+  // Footer
+  .footer__container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer__cta {
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+  .footer__brand .footer__logo {
+    font-size: 3.2rem;
+  }
+  // Header
+  .hero__text-container .hero__title {
+    font-size: 3.8rem;
+    text-align: center;
+    line-height: 5rem;
+    margin-bottom: 2rem;
+  }
+  .hero__text-container .hero__subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .hero__text-container .hero__description {
+    text-align: center;
+    font-size: 1.45rem;
+  }
+  .hero__text-container .hero__title--underline.active:after {
+    width: 13rem;
+  }
+  .hero__text-container .hero__actions {
+    justify-content: center;
+    margin-bottom: 3.2rem;
+    gap: 2.4rem;
+  }
+  .hero__image img {
+    max-width: 85%;
+  }
+  header.main {
+    background-image: none;
+    margin-bottom: 16rem;
+  }
+  h2 {
+    font-size: 2.8rem !important;
+  }
+  .subtitle {
+    font-size: 1.6rem;
+  }
 
+  .hero__text-container {
+    width: 100%;
+  }
+
+  .hero__text-container .hero__actions .hero__action-button {
+    padding: 1.4rem 2.1rem;
+    font-size: 1.6rem;
+  }
+  .hero__text-container .hero__actions .hero__play-demo img {
+    padding: 1.5rem;
+  }
+  // Features
+  .features__list--item h3 {
+    font-size: 1.8rem;
+  }
+  .features__list--item p {
+    font-size: 1.6rem;
+  }
+  // Selling
+  .steps {
+    margin-bottom: 26rem;
+  }
+  .steps__images .steps__floating-card {
+    transform: translate(50%, -50%);
+    top: 103%;
+    right: 50%;
+  }
+  .steps__header h2 {
+    line-height: 1.5 !important;
+  }
+  .selling__destinations {
+    gap: 3.2rem;
+  }
+  .selling .container {
+    background-position: 69% 92%;
+  }
+  // Logo
+  .featured-logos--logo:last-child {
+    display: none;
+  }
   // CTA
   .cta__container {
     padding: 4rem 1rem;

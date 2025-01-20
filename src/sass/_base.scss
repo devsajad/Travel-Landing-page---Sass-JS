@@ -172,7 +172,7 @@ a {
 
 // 700 PX
 @mixin br-s {
-  @media screen and (max-width: 43.75em) {
+  @media screen and (max-width: 41.125em) {
     @content;
   }
 }

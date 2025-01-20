@@ -29,6 +29,10 @@
     display: flex;
     gap: 2rem;
 
+    svg {
+      height: 48px;
+      width: 60px;
+    }
     &-title {
       font-weight: 700;
       font-size: 1.6rem;
