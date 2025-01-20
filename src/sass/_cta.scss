@@ -66,6 +66,9 @@
     }
 
     &--input-container {
+      svg {
+        width: 3rem;
+      }
       border-radius: 1rem;
       min-height: 6.8rem;
       background-color: #fff;
