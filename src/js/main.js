@@ -3,8 +3,6 @@ import greecImage from "../../assets/steps/greec.webp";
 import europeImage from "../../assets/destination/europe.webp";
 import italyImage from "../../assets/destination/italy.webp";
 import londonImage from "../../assets/destination/london.webp";
-
-// Map for image sources
 const imagesMap = {
   greec: greecImage,
   europe: europeImage,
@@ -12,58 +10,52 @@ const imagesMap = {
   london: londonImage,
 };
 
-// Select DOM elements
 const progressBar = document.querySelector(".steps__floating-card--line");
 const stepImages = document.querySelector(".steps__floating-card");
 const heroTitleUnderline = document.querySelector(".hero__title--underline");
 const hiddenSections = document.querySelectorAll(".section-hidden");
 const lazyImages = document.querySelectorAll(".lazy-loading");
+////////////////////////////////// Reveal Setions
+// Reveal Header
+function reavealHero(entries) {
+  heroTitleUnderline.classList.toggle("active");
+}
 
-// Helper functions to toggle classes for elements
-const toggleClass = (element, className, condition = true) =>
-  condition
-    ? element.classList.add(className)
-    : element.classList.remove(className);
-
-// ------------------------------------------
-// Reveal Header Section
-const revealHero = (entries, observer) => {
-  toggleClass(heroTitleUnderline, "active", entries[0].isIntersecting);
-  observer.unobserve(entries[0].target);
-};
-
-const headerObserver = new IntersectionObserver(revealHero, { threshold: 1 });
+const headerObserver = new IntersectionObserver(reavealHero, {
+  root: null,
+  threshold: 1,
+});
 headerObserver.observe(heroTitleUnderline);
 
-// ------------------------------------------
-// Reveal Sections
-const revealSection = (entries, observer) => {
-  const entry = entries[0];
+// Reaveal sections
+function revealSection(entries, observer) {
+  const [entry] = entries;
   if (!entry.isIntersecting) return;
 
-  const target = entry.target;
+  if (entry.target.classList.contains("steps__images")) {
+    const target = entry.target;
 
-  // Reveal image section and unobserve it
-  if (target.classList.contains("steps__images")) {
-    toggleClass(target, "active");
-    observer.unobserve(target);
-    return;
+    target.classList.add("active");
+    return observer.unobserve(entry.target);
   }
 
-  toggleClass(target, "section-hidden", false);
-  observer.unobserve(target);
-};
+  entry.target.classList.remove("section-hidden");
+  observer.unobserve(entry.target);
+}
 
 const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
   threshold: 0.15,
 });
+
 hiddenSections.forEach((section) => sectionObserver.observe(section));
+
+// Reaveal Step Section image
 sectionObserver.observe(stepImages);
 
-// ------------------------------------------
-// Progress Section
-const revealProgress = (entries, observer) => {
-  const entry = entries[0];
+// Progress section
+function reavealProgress(entries, observer) {
+  const [entry] = entries;
   if (!entry.isIntersecting) return;
 
   let progressCount = 0;
@@ -74,121 +66,137 @@ const revealProgress = (entries, observer) => {
     ).textContent = `${progressCount}%`;
   }, 25);
 
-  setTimeout(() => clearInterval(intervalId), 500);
-  toggleClass(progressBar, "active");
+  setTimeout(() => {
+    clearInterval(intervalId);
+  }, 500);
+
+  progressBar.classList.add("active");
 
   observer.unobserve(entry.target);
-};
+}
 
-const progressObserver = new IntersectionObserver(revealProgress, {
+const progressObserver = new IntersectionObserver(reavealProgress, {
+  root: null,
   threshold: 1,
 });
 progressObserver.observe(stepImages);
 
-// ------------------------------------------
-// Lazy Load Images
-// const revealImage = (entries, observer) => {
-//   entries.forEach((entry) => {
-//     if (!entry.isIntersecting) return;
+///////////////////////////////// Image Lazy loading
+const revealImage = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
 
-//     const target = entry.target;
-//     target.src = imagesMap[target.dataset.name];
+    const target = entry.target;
+    target.src = imagesMap[target.dataset.name];
 
-//     target.addEventListener("load", () => {
-//       target.classList.remove("lazy-loading");
-//     });
+    requestAnimationFrame(() => {
+      target.classList.remove("lazy-loading");
+    });
 
-//     // Unobserve the image after loading it
-//     observer.unobserve(target);
-//   });
-// };
+    observer.unobserve(target);
+  });
+};
 
 const imageObserver = new IntersectionObserver(revealImage, {
-  rootMargin: "200px", // Start loading earlier to improve performance
-  threshold: 0.1, // Trigger loading earlier
+  rootMargin: "200px 0px",
+  threshold: 0.1,
 });
 
 lazyImages.forEach((image) => imageObserver.observe(image));
 
-// ------------------------------------------
-// Testimonials Slider
-const slider = () => {
+/////////////////////////////// Testominonials Slider
+function slider() {
   const slides = document.querySelectorAll(".testimonial__slider--slide");
   const dotContainer = document.querySelector(".testimonial__header--dots");
   const arrowTop = document.querySelector(".arrow-top");
   const arrowDown = document.querySelector(".arrow-down");
 
   let curSlide = 0;
+  let nextSlide = curSlide + 1;
   const maxSlide = slides.length;
 
-  // Create dots for slider
-  const createDots = () => {
+  function createDots() {
     slides.forEach((_, i) => {
       dotContainer.insertAdjacentHTML(
         "beforeend",
-        `<button class="dots__dot" data-slide="${i}"></button>`
+        `<button
+            class="dots__dot"
+            data-slide=${i}
+            ></button>`
       );
     });
-  };
+  }
 
-  const activateDot = (slide) => {
+  function activateDot(slide) {
+    document.querySelectorAll(".dots__dot").forEach((dot) => {
+      dot.classList.remove("dots__dot--active");
+    });
+
     document
-      .querySelectorAll(".dots__dot")
-      .forEach((dot) =>
-        toggleClass(dot, "dots__dot--active", dot.dataset.slide == slide)
-      );
-  };
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add("dots__dot--active");
+  }
 
-  const goToSlide = (curSlide, nextSlide) => {
+  function goToSlide(curSlide, nextSlide) {
     slides.forEach((slide) => {
-      slide.classList.remove("active", "next");
+      slide.classList.remove("active");
+      slide.classList.remove("next");
     });
 
     slides[curSlide].classList.add("active");
     slides[nextSlide].classList.add("next");
-  };
+  }
 
-  const goNextSlide = () => {
-    curSlide = (curSlide + 1) % maxSlide;
-    const nextSlide = (curSlide + 1) % maxSlide;
+  // Next slide
+  const goNextSlide = function () {
+    curSlide++;
+    nextSlide++;
 
-    goToSlide(curSlide, nextSlide);
-    activateDot(curSlide);
-  };
-
-  const goPrevSlide = () => {
-    curSlide = (curSlide - 1 + maxSlide) % maxSlide;
-    const nextSlide = (curSlide + 1) % maxSlide;
+    if (curSlide === maxSlide) curSlide = 0;
+    if (nextSlide === maxSlide) nextSlide = 0;
 
     goToSlide(curSlide, nextSlide);
     activateDot(curSlide);
   };
 
-  const sliderIntId = setInterval(goNextSlide, 2000);
+  const goPrevSlide = function () {
+    curSlide--;
+    nextSlide--;
 
-  // Event listeners
+    if (curSlide < 0) curSlide = maxSlide - 1;
+    if (nextSlide < 0) nextSlide = maxSlide - 1;
+
+    goToSlide(curSlide, nextSlide);
+    activateDot(curSlide);
+  };
+
+  const sliderIntId = setInterval(() => {
+    goNextSlide();
+  }, 2000);
+
+  // events
   dotContainer.addEventListener("click", (e) => {
-    if (e.target.classList.contains("dots__dot")) {
-      const slide = parseInt(e.target.dataset.slide);
-      activateDot(slide);
-      goToSlide(slide, (slide + 1) % maxSlide);
-    }
+    if (!e.target.classList.contains("dots__dot")) return;
+
+    const slide = +e.target.dataset.slide;
+    activateDot(slide);
+
+    const nextSlide = slide + 1 === maxSlide ? 0 : slide + 1;
+    goToSlide(slide, nextSlide);
   });
 
+  (function init() {
+    createDots();
+    activateDot(0);
+    goToSlide(0, 1);
+  })();
   arrowDown.addEventListener("click", () => {
     clearInterval(sliderIntId);
     goNextSlide();
   });
-
   arrowTop.addEventListener("click", () => {
     clearInterval(sliderIntId);
     goPrevSlide();
   });
-
-  // Initialize slider
-  createDots();
-  activateDot(0);
-  goToSlide(0, 1);
-};
-
+}
 slider();
