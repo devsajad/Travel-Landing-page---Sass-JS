@@ -11,7 +11,8 @@ const imagesMap = {
 };
 
 const progressBar = document.querySelector(".steps__floating-card--line");
-const stepImages = document.querySelector(".steps__floating-card");
+const stepProgress = document.querySelector(".steps__floating-card");
+const stepImages = document.querySelector(".steps__images");
 const heroTitleUnderline = document.querySelector(".hero__title--underline");
 const hiddenSections = document.querySelectorAll(".section-hidden");
 const lazyImages = document.querySelectorAll(".lazy-loading");
@@ -79,7 +80,7 @@ const progressObserver = new IntersectionObserver(reavealProgress, {
   root: null,
   threshold: 1,
 });
-progressObserver.observe(stepImages);
+progressObserver.observe(stepProgress);
 
 ///////////////////////////////// Image Lazy loading
 function revealImage(entries, observe) {
@@ -200,3 +201,42 @@ function slider() {
   });
 }
 slider();
+
+// Handle Hover
+const navMenu = document.querySelector(".nav__menu");
+
+function handleHover(opacity, e) {
+  const target = e.target;
+  if (!target.classList.contains("nav__menu-item")) return;
+
+  document.querySelectorAll(".nav__menu-item").forEach((el) => {
+    if (el === target) return;
+    el.style.opacity = opacity;
+  });
+}
+
+navMenu.addEventListener("mouseover", handleHover.bind(null, 0.5));
+navMenu.addEventListener("mouseout", handleHover.bind(null, 1));
+
+// Sticky nav
+const heroSection = document.querySelector(".hero-main");
+const headerNav = document.querySelector(".main");
+
+const headerNavHeight = headerNav.offsetHeight;
+console.log(headerNavHeight);
+function heroObserverFunc(entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) {
+    headerNav.classList.add("sticky");
+    heroSection.style.marginTop = `${headerNavHeight}px`;
+  } else {
+    headerNav.classList.remove("sticky");
+    heroSection.style.marginTop = 0;
+  }
+}
+
+const heroObserver = new IntersectionObserver(heroObserverFunc, {
+  root: null,
+  threshold: 0,
+});
+heroObserver.observe(heroSection);

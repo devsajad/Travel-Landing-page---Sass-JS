@@ -15,35 +15,37 @@
   </head>
   <body>
     <header class="main">
+      <nav class="nav">
+        <div class="nav__logo-container">
+          <img class="nav__logo" src="assets/logo.png" alt="Jadoo logo" />
+        </div>
+
+        <ul class="nav__menu">
+          <li class="nav__menu-item">Destinations</li>
+          <li class="nav__menu-item">Hotels</li>
+          <li class="nav__menu-item">Flights</li>
+          <li class="nav__menu-item">Bookings</li>
+          <li class="nav__menu-item">Login</li>
+          <li class="nav__menu-item nav__menu-item--signup">Sign up</li>
+          <li class="nav__menu-item nav__menu-item--language">
+            <span>EN</span>
+            <svg
+              class="nav__menu-arrow-icon"
+              width="10"
+              height="6"
+              viewBox="0 0 10 6"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0.5 0.5L5 5L9.5 0.5" stroke="#212832" />
+            </svg>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero-main">
       <div class="container">
-        <nav class="nav">
-          <div class="nav__logo-container">
-            <img class="nav__logo" src="assets/logo.png" alt="Jadoo logo" />
-          </div>
-
-          <ul class="nav__menu">
-            <li class="nav__menu-item">Destinations</li>
-            <li class="nav__menu-item">Hotels</li>
-            <li class="nav__menu-item">Flights</li>
-            <li class="nav__menu-item">Bookings</li>
-            <li class="nav__menu-item">Login</li>
-            <li class="nav__menu-item nav__menu-item--signup">Sign up</li>
-            <li class="nav__menu-item nav__menu-item--language">
-              <span>EN</span>
-              <svg
-                class="nav__menu-arrow-icon"
-                width="10"
-                height="6"
-                viewBox="0 0 10 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M0.5 0.5L5 5L9.5 0.5" stroke="#212832" />
-              </svg>
-            </li>
-          </ul>
-        </nav>
-
         <div class="hero">
           <div class="hero__text-container">
             <span class="hero__subtitle"
@@ -76,7 +78,7 @@
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
     <main>
       <section class="features section-hidden">
@@ -123,7 +125,7 @@
         </div>
       </section>
 
-      <section class="selling">
+      <section class="selling section-hidden">
         <div class="container">
           <header>
             <span class="subtitle">Top Selling</span>
@@ -720,7 +722,7 @@
         </div>
       </section>
 
-      <section class="cta">
+      <section class="cta section-hidden">
         <div class="container cta__container">
           <form action="#" class="cta__form">
             <p class="cta__form--title">

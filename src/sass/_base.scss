@@ -63,7 +63,6 @@ $color-accent--purple-tint: #dfd7f9;
 html,
 body {
   overflow-x: hidden;
-  height: 100%;
 }
 
 html {
@@ -72,12 +71,27 @@ html {
 }
 
 body {
+  height: 100%;
   font-size: 1.6rem;
   font-family: "Poppins", serif;
   color: $color-grey;
   background-color: #fff;
-
+  position: relative;
   line-height: 1;
+
+  &::before {
+    z-index: -999;
+    content: "";
+    display: block;
+    width: 600px;
+    height: 620px;
+    top: 0;
+    right: 0;
+    background-image: url("../../assets/Decore.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+  }
 }
 
 .container {
@@ -85,8 +99,7 @@ body {
   margin: auto;
 }
 
-section,
-header.main {
+section {
   margin-bottom: 19.2rem;
   padding: 0 2.5rem;
 }
