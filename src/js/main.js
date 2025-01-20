@@ -92,7 +92,7 @@ const revealImage = (entries, observer) => {
     if (!entry.isIntersecting) return;
 
     const target = entry.target;
-    target.src = imagesMap[target.dataset.name];
+    // target.src = imagesMap[target.dataset.name];
 
     // target.addEventListener("load", () =>
     target.classList.remove("lazy-loading");
