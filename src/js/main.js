@@ -82,24 +82,24 @@ const progressObserver = new IntersectionObserver(reavealProgress, {
 progressObserver.observe(stepImages);
 
 ///////////////////////////////// Image Lazy loading
-const revealImage = (entries, observer) => {
+function revealImage(entries, observe) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+
   entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
+    entry.target.src = imagesMap[entry.target.dataset.name];
 
-    const target = entry.target;
-    target.src = imagesMap[target.dataset.name];
-
-    requestAnimationFrame(() => {
-      target.classList.remove("lazy-loading");
+    entry.target.addEventListener("load", function () {
+      entry.target.classList.remove("lazy-loading");
     });
-
-    observer.unobserve(target);
+    observe.unobserve(entry.target);
   });
-};
+}
 
 const imageObserver = new IntersectionObserver(revealImage, {
-  rootMargin: "200px 0px",
-  threshold: 0.1,
+  root: null,
+  threshold: 0,
+  rootMargin: "-300px",
 });
 
 lazyImages.forEach((image) => imageObserver.observe(image));
