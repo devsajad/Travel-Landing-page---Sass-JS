@@ -94,9 +94,9 @@ const revealImage = (entries, observer) => {
     const target = entry.target;
     target.src = imagesMap[target.dataset.name];
 
-    target.addEventListener("load", () =>
-      target.classList.remove("lazy-loading")
-    );
+    // target.addEventListener("load", () =>
+    target.classList.remove("lazy-loading");
+    // );
     observer.unobserve(target);
   });
 };

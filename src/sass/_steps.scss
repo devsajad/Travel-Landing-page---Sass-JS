@@ -29,10 +29,14 @@
     display: flex;
     gap: 2rem;
 
-    svg {
-      height: 48px;
-      width: 60px;
+    &-icon {
+      height: 5.6rem;
+      width: 6rem;
+      svg {
+        width: 100%;
+      }
     }
+
     &-title {
       font-weight: 700;
       font-size: 1.6rem;
